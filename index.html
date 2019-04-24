@@ -5,7 +5,12 @@
 </head>
 <body>
     <script>
-        const computerPlay = function(){
+        const fiveGames = function(){
+            let counter = 0
+            while (counter < 5){
+            counter++
+
+            const computerPlay = function(){
             let number = Math.random();
             if (number < .334){
                 return("paper")
@@ -15,12 +20,15 @@
                 return("scissors");
             }
         }
-        let computerSelection = computerPlay();
-        let playerSelection = prompt("Paper, rock, scissors");
-        playerSelection = playerSelection.toLowerCase();
-        console.log(computerSelection)
-        console.log(playerSelection);
         
+            let computerSelection = computerPlay();
+            let playerSelection = prompt("Paper, rock, scissors");
+            playerSelection = playerSelection.toLowerCase();
+            
+            console.log(computerSelection)
+            console.log(playerSelection);
+            
+            const oneGame = function (){
         if (computerSelection === playerSelection){
             console.log("Tie!");
         }else{
@@ -44,6 +52,14 @@
                 }
             }
         }
+        }
+        
+
+            oneGame();
+
+            }
+        }
+        fiveGames();
     </script>
 </body>
 </html>
