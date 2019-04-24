@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        const computerPlay = function(){
+            let number = Math.random();
+            if (number < .334){
+                return("paper")
+            }else if (.334 < number < .667){
+                return("rock");
+            }else{
+                return("scissors");
+            }
+        }
+        let computerSelection = computerPlay();
+        let playerSelection = prompt("Paper, rock, scissors");
+        playerSelection = playerSelection.toLowerCase();
+        console.log(computerSelection)
+        console.log(playerSelection);
+        
+        if (computerSelection === playerSelection){
+            console.log("Tie!");
+        }else{
+            if (computerSelection === "paper"){
+                if (playerSelection === "rock"){
+                    console.log(`You lose ${computerSelection} beats ${playerSelection}.`);
+                }else{
+                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                }
+            } else if (computerSelection === "rock"){
+                if(playerSelection === "paper"){
+                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);    
+                } else {
+                    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                }
+            } else{
+                if(playerSelection === "paper"){
+                    console.log(`You lose ${computerSelection} beats ${playerSelection}.`);
+                }else{
+                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
