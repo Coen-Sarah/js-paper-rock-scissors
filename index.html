@@ -5,6 +5,8 @@
 </head>
 <body>
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
         const fiveGames = function(){
             let counter = 0
             while (counter < 5){
@@ -25,41 +27,55 @@
             let playerSelection = prompt("Paper, rock, scissors");
             playerSelection = playerSelection.toLowerCase();
             
+            
+
             console.log(computerSelection)
             console.log(playerSelection);
             
             const oneGame = function (){
-        if (computerSelection === playerSelection){
+            if (computerSelection === playerSelection){
             console.log("Tie!");
         }else{
-            if (computerSelection === "paper"){
-                if (playerSelection === "rock"){
-                    console.log(`You lose ${computerSelection} beats ${playerSelection}.`);
-                }else{
-                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-                }
-            } else if (computerSelection === "rock"){
-                if(playerSelection === "paper"){
-                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);    
-                } else {
-                    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-                }
-            } else{
-                if(playerSelection === "paper"){
-                    console.log(`You lose ${computerSelection} beats ${playerSelection}.`);
-                }else{
-                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                if (computerSelection === "paper"){
+                    if (playerSelection === "rock"){
+                        console.log(`You lose ${computerSelection} beats ${playerSelection}.`);
+                        computerScore++;
+                    }else{
+                        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                        playerScore++;
+                    }
+                } else if (computerSelection === "rock"){
+                    if(playerSelection === "paper"){
+                        console.log(`You win! ${playerSelection} beats ${computerSelection}`);    
+                        playerScore++;
+                    } else {
+                        console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                        computerScore++;
+                    }
+                } else{
+                    if(playerSelection === "paper"){
+                        console.log(`You lose ${computerSelection} beats ${playerSelection}.`);
+                        computerScore++;
+                    }else{
+                        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                        playerScore++;
                 }
             }
         }
         }
-        
-
             oneGame();
-
             }
         }
         fiveGames();
+        console.log(`Player Score: ${playerScore}`);
+        console.log(`Computer Score: ${computerScore}`);
+        if(playerScore == computerScore){
+            console.log("Tie!");
+        }else if(playerScore > computerScore){
+            console.log(`You win ${playerScore} to ${computerScore}`);
+        }else{
+            console.log(`You lose ${computerScore} to ${playerScore}`);
+        }
     </script>
 </body>
 </html>
